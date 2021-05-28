@@ -1,19 +1,44 @@
 import React from "react";
 import ReactDom from "react-dom";
+const firstbook = {
+  author: "sabbirdk",
+  title: "I know who am I",
+  image:
+    "https://m.media-amazon.com/images/I/51+CYfFksWS._BG0,0,0,0_FMpng_AC_SY160_SX160_.jpg",
+};
+const secoundbook = {
+  author: "sabbir",
+  title: "I know  am I",
+  image:
+    "https://m.media-amazon.com/images/I/51+CYfFksWS._BG0,0,0,0_FMpng_AC_SY160_SX160_.jpg",
+};
 
-function Greeting() {
+function BookList() {
   return (
     <div>
       <h4>Hey its me sabbir.The boy</h4>
-      <Test1 />
-      <Test2 />
+      <Book
+        author={firstbook.author}
+        title={firstbook.title}
+        image={firstbook.image}
+      />
+      <Book
+        author={secoundbook.author}
+        title={secoundbook.title}
+        image={secoundbook.image}
+      />
     </div>
   );
 }
-const Test1 = () => {
-  return <h1>Test1</h1>;
+const Book = (props) => {
+  console.log(props);
+  return (
+    <section>
+      <img src={props.image} alt="" />
+      <h1>{props.title}</h1>
+      <p>{props.author}</p>
+    </section>
+  );
 };
-const Test2 = () => {
-  return <h1>Test2</h1>;
-};
-ReactDom.render(<Greeting />, document.getElementById("root"));
+
+ReactDom.render(<BookList />, document.getElementById("root"));
